@@ -69,28 +69,28 @@ def get_images(args, image_dir,transform=None,batch_size=1,shuffle=True,pin_memo
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_dir', type=str, default='./Semantic_segmentation_data/', help='path to dataset')
-    parser.add_argument('--batch_size', type=int, default=16, help='size of batch')
-    parser.add_argument('--num_workers', type=int, default=8, help='number of workers')
-    parser.add_argument('--epochs', type=int, default=10, help='number of epochs')
-    parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
-    parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
-    parser.add_argument('--weight_decay', type=float, default=0.0001, help='weight decay')
-    parser.add_argument('--save_model', type=bool, default=True, help='save model')
-    parser.add_argument('--save_figure', type=str, default='./test_image_save', help='save model')
-    parser.add_argument('--load_model', type=bool, default=False, help='load model')
-    parser.add_argument('--model_path', type=str, default='./checkpoint/best_model.pth', help='path to model')
-    parser.add_argument('--wandb', type=bool, default=False, help='wandb')
-    parser.add_argument('--wandb_project', type=str, default='unet', help='wandb project')
+    parser.add_argument('--batch_size', type=int, default=16, help='set size of batch')
+    parser.add_argument('--num_workers', type=int, default=8, help='set number of workers')
+    parser.add_argument('--epochs', type=int, default=10, help='set number of epochs')
+    parser.add_argument('--lr', type=float, default=0.001, help='set learning rate')
+    parser.add_argument('--momentum', type=float, default=0.9, help='set momentum')
+    parser.add_argument('--weight_decay', type=float, default=0.0001, help='set weight decay')
+    parser.add_argument('--save_model', type=bool, default=True, help='True if you want to save model')
+    parser.add_argument('--save_figure', type=str, default='./test_image_save', help='path for saving test images')
+    parser.add_argument('--load_model', type=bool, default=False, help='True if you want to load model')
+    parser.add_argument('--model_path', type=str, default='./checkpoint/best_model.pth', help='path to pretrained model')
+    parser.add_argument('--wandb', type=bool, default=False, help='True if you want to use wandb')
+    parser.add_argument('--wandb_project', type=str, default='unet', help='wandb project name')
     parser.add_argument('--wandb_entity', type=str, default='YOUR_ID', help='wandb entitiy name')
 
 
     args = parser.parse_args()
 
+    print(args)
+    
     if args.wandb:
         wandb.init(project=args.wandb_project, name=args.wandb_project, entity = args.wandb_entity) 
     else:
         print("wandb is not used")
 
     main(args)
-
-    
