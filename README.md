@@ -66,7 +66,7 @@ python main.py --data_dir './Semantic_segmentation_data/' --batch_size 16 --num_
 ```
 To use Wandb,
 ```
-python main.py --data_dir './Semantic_segmentation_data/' --batch_size 16 --num_workers 8 --epochs 10 --lr 0.001 --momentum 0.9 --weight_decay 0.0001 --save_model True --save_figure './test_image_save' --wandb True --wandb_project 'unet --wandb_entity 'PLACE_YOUR_ID'
+python main.py --data_dir './Semantic_segmentation_data/' --batch_size 16 --num_workers 8 --epochs 10 --lr 0.001 --momentum 0.9 --weight_decay 0.0001 --save_model True --save_figure './test_image_save' --wandb True --wandb_project 'unet' --wandb_entity 'PLACE_YOUR_ID'
 ```
 To continue training on a pre-trained model,
 ```
