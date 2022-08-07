@@ -82,7 +82,7 @@ if __name__ == '__main__':
     parser.add_argument('--wandb', type=bool, default=False, help='True if you want to use wandb')
     parser.add_argument('--wandb_project', type=str, default='unet', help='wandb project name')
     parser.add_argument('--wandb_entity', type=str, default='YOUR_ID', help='wandb entitiy name')
-    parser.add_argument('--wandb_score_warning_threshold', type=int, default=0.15, help='threshold for test score warning')
+    parser.add_argument('--wandb_score_warning_threshold', type=float, default=0.15, help='threshold for test score warning')
 
 
     args = parser.parse_args()
