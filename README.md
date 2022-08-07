@@ -3,7 +3,7 @@
 
 ## Getting Started
 ### Installation
-- Clone this repo:
+- Follow the steps below:
 ```bash
 git clone https://github.com/kochanha/unet_practice_materials.git
 cd unet_practice_materials
