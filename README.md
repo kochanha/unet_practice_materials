@@ -3,17 +3,15 @@
 
 ## Getting Started
 ### Installation
-
 - Clone this repo:
 ```bash
 git clone https://github.com/kochanha/unet_practice_materials.git
 cd unet_practice_materials
-pip install wandb
+pip install wandb torchmetrics matplotlib tqdm pillow
 pip install -U git+https://github.com/albu/albumentations > /dev/null && echo
-pip install torchmetrics
 ```
 
-- Install [PyTorch](http://pytorch.org) and 1.10.1+ and other dependencies (e.g., torchvision).
+- Install [PyTorch](http://pytorch.org) 1.10.1+ and other dependencies (e.g., torchvision).
 
 ### Training
 - Download dataset with `data_download.sh`
