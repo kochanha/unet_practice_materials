@@ -13,7 +13,9 @@ from PIL import Image
 def train(args, model, num_epochs, loss_fn, optimizer, scaler, train_batch, test_batch, DEVICE):
 
     print("-----Training for {} epochs-----".format(num_epochs))
-
+    
+    test_score_threshold = 0.15
+    
     for epoch in range(num_epochs):
         print("epoch : {} / {}".format(epoch+1, num_epochs))
         loop = tqdm(enumerate(train_batch),total=len(train_batch))
@@ -53,6 +55,12 @@ def train(args, model, num_epochs, loss_fn, optimizer, scaler, train_batch, test
         model.eval()
         test_score = print_iou(test_batch, model)
         if args.wandb:
+            if test_score_threshold > test_score:
+                wandb.alert(
+                    title='Low Test Score',
+                    text=f'IoU score {test_score} at epoch {epoch+1} is below the acceptable theshold, {test_score_threshold}',
+                )
+                print('Low Score Alert triggered')
             wandb.log({'test iou': test_score })
         
         if args.save_model:
