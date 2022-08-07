@@ -14,7 +14,7 @@ def train(args, model, num_epochs, loss_fn, optimizer, scaler, train_batch, test
 
     print("-----Training for {} epochs-----".format(num_epochs))
     
-    test_score_threshold = 0.15
+    test_score_threshold = args.test_score_threshold
     
     for epoch in range(num_epochs):
         print("epoch : {} / {}".format(epoch+1, num_epochs))
