@@ -29,7 +29,8 @@ usage: main.py [-h] [--data_dir DATA_DIR] [--batch_size BATCH_SIZE]
                [--save_model SAVE_MODEL] [--save_figure SAVE_FIGURE]
                [--load_model LOAD_MODEL] [--model_path MODEL_PATH]
                [--wandb WANDB] [--wandb_project WANDB_PROJECT]
-               [--wandb_entity WANDB_ENTITY]
+               [--wandb_entity WANDB_ENTITY] 
+               [--wandb_score_warning_threshold WANDB_SCORE_WARNING_THRESHOLD]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -56,6 +57,8 @@ optional arguments:
                         wandb project name
   --wandb_entity WANDB_ENTITY
                         wandb entitiy name
+  --wandb_score_warning_threshold WANDB_SCORE_WARNING_THRESHOLD
+                        threshold for test score warning
 
 ```
 For example, run the following if not using Wandb
@@ -64,7 +67,7 @@ python main.py --data_dir './Semantic_segmentation_data/' --batch_size 16 --num_
 ```
 To use Wandb,
 ```
-python main.py --data_dir './Semantic_segmentation_data/' --batch_size 16 --num_workers 8 --epochs 10 --lr 0.001 --momentum 0.9 --weight_decay 0.0001 --save_model True --save_figure './test_image_save' --wandb True --wandb_project 'unet' --wandb_entity 'PLACE_YOUR_ID'
+python main.py --data_dir './Semantic_segmentation_data/' --batch_size 16 --num_workers 8 --epochs 10 --lr 0.001 --momentum 0.9 --weight_decay 0.0001 --save_model True --save_figure './test_image_save' --wandb True --wandb_project 'unet' --wandb_entity 'PLACE_YOUR_ID' --wandb_score_warning_threshold 0.15
 ```
 To continue training on a pre-trained model,
 ```
