@@ -37,22 +37,24 @@ def train(args, model, num_epochs, loss_fn, optimizer, scaler, train_batch, test
             scaler.step(optimizer)
             scaler.update()
 
-            if batch_idx %50 ==0:
-                model.eval()
-                with torch.no_grad():
-                    preds = torch.argmax(predictions,axis=1).to('cpu')
-                    mask1 = np.array(preds[0,:,:])
-                    img = plt.imshow(mask1)
-                    plt.savefig('./{}/{}_{}.png'.format(args.save_figure,epoch+1,batch_idx))
-
-                    if args.wandb:
-                        wandb.log({'predicted map' : [wandb.Image(img)]})
                         
             loop.set_postfix(loss=loss.item())
             if args.wandb:
                 wandb.log({'Epoch': epoch+1, 'Loss': loss })
 
         model.eval()
+        
+        with torch.no_grad():
+                    preds = torch.argmax(predictions,axis=1).to('cpu')
+                    mask1 = np.array(preds[0,:,:])
+                    data1 = np.array(data[0,:,:,:].permute(1,2,0).to('cpu'))
+                    img = plt.imshow(data1)
+                    img = plt.imshow(mask1,vmin=0, alpha=0.5)
+                    plt.savefig('./{}/{:04d}.png'.format(args.save_figure,epoch+1))
+
+                    if args.wandb:
+                        wandb.log({'predicted map' : [wandb.Image(img)]})
+                        
         test_score = print_iou(test_batch, model)
         if args.wandb:
             if test_score_threshold > test_score:
