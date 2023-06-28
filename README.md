@@ -14,10 +14,7 @@ pip install -U git+https://github.com/albu/albumentations > /dev/null && echo
 - Install [PyTorch](http://pytorch.org) 1.10.1+ and other dependencies (e.g., torchvision).
 
 ### Training
-- Download dataset with `data_download.sh`
-```bash
-bash data_download.sh
-```
+- Download dataset from [HERE](https://drive.google.com/file/d/1TMkzGTWqm7t6kXhfFeCx_56vSOa9zKNp/view?usp=sharing)
 
 - Download pretrained weight from [HERE](https://drive.google.com/file/d/1h4UQq68xQfyteLyjjt2IrrHIc-YyNVpg/view?usp=sharing)
 
