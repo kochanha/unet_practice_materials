@@ -4,7 +4,7 @@ import numpy as np
 import torch.nn as nn
 
 def iou_score(n_classes, model, loader):
-    iou = JaccardIndex(num_classes=n_classes)
+    iou = JaccardIndex(num_classes=n_classes, task='multiclass')
     iou_scores = [] 
     with torch.no_grad():
             for x, y in loader:
